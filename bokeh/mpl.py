@@ -86,6 +86,8 @@ class BokehRenderer(Renderer):
             plots = []
             for i, axes in enumerate(fig.axes):
                 _plot = self.plot.clone()
+                _plot.x_range = self.plot.x_range.clone()
+                _plot.y_range = self.plot.y_range.clone()
                 _plot.renderers = subrends[i]
                 plots.append(_plot)
             (a, b, c) = fig.axes[0].get_geometry()
